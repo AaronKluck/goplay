@@ -23,3 +23,9 @@ go.work.sum
 
 # env file
 .env
+
+# IDEs and editors
+.vscode
+
+# Executables
+goplay
