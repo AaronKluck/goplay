@@ -59,8 +59,8 @@ func SelectorChan(
 	ch2 := make(chan Stringable, 1)
 	var wg sync.WaitGroup
 
-	wg.Add(3)
 	// Writer 1
+	wg.Add(1)
 	go func() {
 		defer wg.Done()
 		defer close(ch1)
@@ -71,6 +71,7 @@ func SelectorChan(
 	}()
 
 	// Writer 1
+	wg.Add(1)
 	go func() {
 		defer wg.Done()
 		defer close(ch2)
@@ -81,6 +82,7 @@ func SelectorChan(
 	}()
 
 	// Reader
+	wg.Add(1)
 	go func() {
 		defer wg.Done()
 		for ch1 != nil || ch2 != nil {
